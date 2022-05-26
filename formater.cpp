@@ -14,14 +14,10 @@ int main ()
     BOOST_FOREACH(ptree::value_type & child, pt.get_child("dict.dict"))
     {
         //parser test
-        cout << "Name:  " << child.first << endl
-        cout << "Artist:  " << child.second.get<string>("<xmlattr>.pass"); << endl
-        cout << "Album:  " << child.second.get<string>("<xmlattr>.pass"); << endl
-        cout << "Year:  " << child.second.get(int)>("xmlattr>.pass"}; << endl
-
-
-
-
+        cout << "Name:  " << child.second.get<string>("<xmlattr>.Name") << endl
+        cout << "Artist:  " << child.second.get<string>("<xmlattr>.Artist"); << endl
+        cout << "Album:  " << child.second.get<string>("<xmlattr>.Album"); << endl
+        cout << "Year:  " << child.second.get(int)>("xmlattr>.Year"}; << endl
 
     return 0;
 
