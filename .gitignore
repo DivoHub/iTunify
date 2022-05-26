@@ -2,9 +2,14 @@
 __pycache__/
 *.py[cod]
 *$py.class
+formater.exe
+formater.o
 
 # C extensions
 *.so
+
+#IDE configs
+.idea
 
 # Distribution / packaging
 .Python
