@@ -1,8 +1,30 @@
 #include <iostream>
 #include <vector>
 #include "tinyxml2.h"
+#include "nlohmann/json.hpp"
 
 using namespace tinyxml2;
+using json = nlohmann::json;
+
+void writeToJson(const std::vector<std::string>& songInfo, const std::string& outputFileName) {
+    // Create a JSON object
+    json jsonObject;
+
+    // Check if the array has enough elements
+    if (songInfo.size() >= 3) {
+        // Add Name, Artist, and Album to the JSON object
+        jsonObject["Name"] = songInfo[0];
+        jsonObject["Artist"] = songInfo[1];
+        jsonObject["Album"] = songInfo[2];
+
+        // Write JSON to file
+        std::ofstream outputFile(outputFileName);
+        outputFile << std::setw(4) << jsonObject << std::endl;
+        std::cout << "JSON file '" << outputFileName << "' created successfully." << std::endl;
+    } else {
+        std::cerr << "Insufficient data in the array to create JSON." << std::endl;
+    }
+}
 
 int main() {
     XMLDocument doc;
@@ -44,3 +66,5 @@ int main() {
 
     return 0;
 }
+
+
