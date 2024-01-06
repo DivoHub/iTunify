@@ -58,3 +58,26 @@ token = get_access_token(client_id, client_secret)
 # Query and get results (replace 'QUERY_STRING' with your search term)
 search_query = 'QUERY_STRING'  # Replace with your search query
 search_spotify(search_query, token)
+
+def get_user_playlists(user_id, token):
+    """
+    This function retrieves a user's playlists and prints out their IDs.
+    """
+    # Spotify endpoint for getting a user's playlists
+    playlists_url = f'https://api.spotify.com/v1/users/{user_id}/playlists'
+
+    # Define the headers
+    headers = {
+        'Authorization': f'Bearer {token}',
+        'Content-Type': 'application/json'
+    }
+
+    # Make the GET request to the Spotify API
+    response = requests.get(playlists_url, headers=headers)
+
+    # Convert the response to JSON
+    playlists = response.json()
+
+    # Loop through each playlist and print its ID
+    for playlist in playlists['items']:
+        print(f"Playlist: {playlist['name']} - ID: {playlist['id']}")
