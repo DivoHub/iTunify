@@ -5,10 +5,8 @@ from dotenv import load_dotenv
 
 
 def get_env_variable(key):
-    # Try to load the .env file from the current directory
     load_dotenv()
 
-    # Get the environment variable
     value = os.getenv(key)
 
     # If the variable is not found, ask the user to input it
@@ -18,6 +16,15 @@ def get_env_variable(key):
         save_to_env(key, value)
 
     return value
+
+def extract_id(song_dict):
+    ids = [str(item[key]) for item in data_dict.values() if key in item]
+
+    # Write IDs to a file
+    with open("songid.txt", 'w') as file:
+        for id in ids:
+            file.write(id + '\n')
+
 
 
 def load_json(file_path):
