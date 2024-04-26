@@ -1,13 +1,19 @@
 # iTunify
 
-Python and C++ application that 
+Transfer playlists from your local iTunes library to Spotify
 
 ## Overview
-This application parses the local music library of the user's iTunes 
+This application parses the xml files of the user's local iTunes music library (Not to be confused with Apple Music), 
+then iteratively queries the Spotify API using the data fetched from the xml file to find matching songs.
+Songs are then appended to specified playlists on Spotify. Strength of matches can be adjusted while close/no matches are logged.
+
 
 
 
 ## Dependencies
+- **Windows 10 or 11. (MacOs support tentative)**
+
+
 - **Python V3.10** (or later)
 
 
@@ -36,3 +42,6 @@ Telling me how trash the code is is also welcome
 
 
 ## Issues
+
+- Unfinished
+- MacOs support
